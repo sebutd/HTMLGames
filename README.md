@@ -11,6 +11,7 @@ Einstieg: `index.html` im Browser öffnen.
 | Bonbon-Tausch (Match-3) | `Match3Game/` |
 | Mahjong (Solitaire) | `MahjongGame/` |
 | Mahjong 3D Tower | `Mahjong3DGame/` |
+| Wort-Rätsel | `WortraetselGame/` |
 
 ## Neues Spiel hinzufügen
 
@@ -41,3 +42,11 @@ Zwei Spezial-Bonbons miteinander getauscht ergeben eine verstärkte Kombination.
 - Ein Würfel ist **frei**, wenn nichts auf ihm liegt und mindestens zwei seiner vier Seiten (links, rechts, vorne, hinten) offen sind.
 - Turm drehen: mit Maus/Finger ziehen, Pfeiltasten oder die Knöpfe ⟲ ⟳. Der Tipp dreht den Turm zum vorgeschlagenen Paar.
 - Hilfen wie beim klassischen Mahjong: Tipp (`H`), Zurück (`Strg+Z`), Mischen und „Freie zeigen“.
+
+## Wort-Rätsel – Regeln
+
+- Bei jedem Aufruf (und mit ↻) wird zufällig ein neues deutsches Wort mit 5 Buchstaben gewählt.
+- 6 Versuche; jeder Versuch muss ein bekanntes deutsches Wort sein. Umlaute (Ä, Ö, Ü) zählen als ein Buchstabe, „ß“ wird als „ss“ geschrieben.
+- **Grün**: Buchstabe an der richtigen Stelle. **Gelb**: kommt im Wort vor, aber an anderer Stelle. **Grau**: kommt nicht vor.
+- Die Bildschirmtastatur färbt die Tasten entsprechend ein; bereits ausgeschlossene Buchstaben werden ausgegraut.
+- Wortlisten in `WortraetselGame/words.js`: `SOLUTIONS` (handverlesene Lösungswörter) und `ALLOWED` (erlaubte Rateversuche).

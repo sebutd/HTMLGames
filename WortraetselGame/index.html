@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Description" content="Wort-Rätsel – errate das deutsche Wort mit 5 Buchstaben in 6 Versuchen">
+<link rel="stylesheet" href="style.css">
+<title>Wort-Rätsel</title>
+</head>
+<body>
+  <main class="game">
+    <header class="game__header">
+      <a href="../index.html" class="icon-btn" title="Alle Spiele" aria-label="Alle Spiele">←</a>
+      <h1>Wort-Rätsel</h1>
+      <button id="new-btn" class="icon-btn" title="Neues Wort" aria-label="Neues Wort">↻</button>
+    </header>
+
+    <p class="hint">Errate das Wort mit 5 Buchstaben in 6 Versuchen.
+      <span class="chip chip--correct">grün</span> = richtige Stelle,
+      <span class="chip chip--present">gelb</span> = kommt vor, falsche Stelle,
+      <span class="chip chip--absent">grau</span> = kommt nicht vor.</p>
+
+    <div class="board-wrap">
+      <div id="board" class="board" aria-label="Spielfeld"></div>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </div>
+
+    <div id="keyboard" class="keyboard" aria-label="Tastatur"></div>
+
+    <div id="overlay" class="overlay hidden">
+      <div class="overlay__box">
+        <h2 id="overlay-title"></h2>
+        <p id="overlay-text"></p>
+        <p class="stats" id="stats"></p>
+        <button id="overlay-btn" class="btn">Neues Wort</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="words.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
