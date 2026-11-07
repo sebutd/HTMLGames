@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Description" content="Mahjong Solitaire – Steine paarweise abräumen, in HTML5">
+<link rel="stylesheet" href="style.css">
+<title>Mahjong</title>
+</head>
+<body>
+  <main class="game">
+    <header class="game__header">
+      <h1>🀄 Mahjong</h1>
+      <p>Entferne Paare gleicher, freier Steine. Ein Stein ist frei, wenn nichts auf ihm liegt und links oder rechts Platz ist.</p>
+    </header>
+
+    <section class="hud">
+      <div class="hud__item"><span class="hud__label">Steine</span><span id="left" class="hud__value">144</span></div>
+      <div class="hud__item"><span class="hud__label">Mögliche Züge</span><span id="moves" class="hud__value">0</span></div>
+      <div class="hud__item"><span class="hud__label">Zeit</span><span id="time" class="hud__value">0:00</span></div>
+      <div class="hud__item"><span class="hud__label">Bestzeit</span><span id="best" class="hud__value">–</span></div>
+    </section>
+
+    <div class="toolbar">
+      <button id="hint-btn" class="btn">💡 Tipp</button>
+      <button id="undo-btn" class="btn">↶ Zurück</button>
+      <button id="shuffle-btn" class="btn">🔀 Mischen</button>
+      <button id="free-btn" class="btn btn--toggle" aria-pressed="false">👁 Freie zeigen</button>
+      <button id="new-btn" class="btn">Neues Spiel</button>
+    </div>
+
+    <div id="board-wrap" class="board-wrap">
+      <div id="board" class="board" aria-label="Spielfeld"></div>
+
+      <div id="overlay" class="overlay hidden">
+        <div class="overlay__box">
+          <h2 id="overlay-title">Geschafft!</h2>
+          <p id="overlay-text"></p>
+          <div class="overlay__actions">
+            <button id="overlay-alt" class="btn btn--ghost hidden">Zurück</button>
+            <button id="overlay-btn" class="btn">Neues Spiel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="game__footer">
+      <a href="../index.html" class="btn btn--ghost">← Alle Spiele</a>
+      <span>Blumen passen zu jeder Blume, Jahreszeiten zu jeder Jahreszeit.</span>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
