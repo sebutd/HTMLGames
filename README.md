@@ -9,6 +9,7 @@ Einstieg: `index.html` im Browser öffnen.
 | Spiel | Ordner |
 |-------|--------|
 | Bonbon-Tausch (Match-3) | `Match3Game/` |
+| Mahjong (Solitaire) | `MahjongGame/` |
 
 ## Neues Spiel hinzufügen
 
@@ -24,3 +25,10 @@ Einstieg: `index.html` im Browser öffnen.
 | 4 | Regenbogen-Kugel | 5 in einer Reihe | tauschen: entfernt alle Bonbons einer Farbe |
 
 Zwei Spezial-Bonbons miteinander getauscht ergeben eine verstärkte Kombination.
+
+## Mahjong – Regeln
+
+- 144 Steine in der klassischen „Schildkröten“-Anordnung; jedes Spiel ist garantiert lösbar.
+- Ein Stein ist **frei**, wenn kein Stein auf ihm liegt und links oder rechts kein Nachbar ist.
+- Zwei freie, gleiche Steine anklicken, um sie zu entfernen. Blumen passen zu jeder Blume, Jahreszeiten zu jeder Jahreszeit.
+- Hilfen: Tipp (Taste `H`), Zurück (`Strg+Z`), Mischen und „Freie zeigen“.
