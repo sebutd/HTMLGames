@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Description" content="Mahjong 3D Tower – Würfel-Mahjong zum Drehen, in HTML5">
+<link rel="stylesheet" href="style.css">
+<title>Mahjong 3D Tower</title>
+</head>
+<body>
+  <main class="game">
+    <header class="game__header">
+      <h1>🗼 Mahjong 3D Tower</h1>
+      <p>Entferne Paare gleicher, freier Würfel. Ein Würfel ist frei, wenn nichts auf ihm liegt und mindestens zwei Seiten offen sind. Ziehen zum Drehen.</p>
+    </header>
+
+    <section class="hud">
+      <div class="hud__item"><span class="hud__label">Würfel</span><span id="left" class="hud__value">0</span></div>
+      <div class="hud__item"><span class="hud__label">Mögliche Züge</span><span id="moves" class="hud__value">0</span></div>
+      <div class="hud__item"><span class="hud__label">Zeit</span><span id="time" class="hud__value">0:00</span></div>
+      <div class="hud__item"><span class="hud__label">Bestzeit</span><span id="best" class="hud__value">–</span></div>
+    </section>
+
+    <div class="toolbar">
+      <button id="rot-left" class="btn btn--ghost" title="Nach links drehen (←)">⟲</button>
+      <button id="hint-btn" class="btn">💡 Tipp</button>
+      <button id="undo-btn" class="btn">↶ Zurück</button>
+      <button id="shuffle-btn" class="btn">🔀 Mischen</button>
+      <button id="free-btn" class="btn btn--toggle" aria-pressed="false">👁 Freie zeigen</button>
+      <button id="new-btn" class="btn">Neues Spiel</button>
+      <button id="rot-right" class="btn btn--ghost" title="Nach rechts drehen (→)">⟳</button>
+    </div>
+
+    <div id="scene" class="scene" aria-label="Spielfeld">
+      <div id="world" class="world"></div>
+    </div>
+
+    <div id="overlay" class="overlay hidden">
+      <div class="overlay__box">
+        <h2 id="overlay-title">Geschafft!</h2>
+        <p id="overlay-text"></p>
+        <div class="overlay__actions">
+          <button id="overlay-alt" class="btn btn--ghost hidden">Zurück</button>
+          <button id="overlay-btn" class="btn">Neues Spiel</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="game__footer">
+      <a href="../index.html" class="btn btn--ghost">← Alle Spiele</a>
+      <span>Drehen: ziehen oder Pfeiltasten · Tipp: H · Zurück: Strg+Z</span>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

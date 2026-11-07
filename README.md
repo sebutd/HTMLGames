@@ -10,6 +10,7 @@ Einstieg: `index.html` im Browser öffnen.
 |-------|--------|
 | Bonbon-Tausch (Match-3) | `Match3Game/` |
 | Mahjong (Solitaire) | `MahjongGame/` |
+| Mahjong 3D Tower | `Mahjong3DGame/` |
 
 ## Neues Spiel hinzufügen
 
@@ -32,3 +33,11 @@ Zwei Spezial-Bonbons miteinander getauscht ergeben eine verstärkte Kombination.
 - Ein Stein ist **frei**, wenn kein Stein auf ihm liegt und links oder rechts kein Nachbar ist.
 - Zwei freie, gleiche Steine anklicken, um sie zu entfernen. Blumen passen zu jeder Blume, Jahreszeiten zu jeder Jahreszeit.
 - Hilfen: Tipp (Taste `H`), Zurück (`Strg+Z`), Mischen und „Freie zeigen“.
+
+## Mahjong 3D Tower – Regeln
+
+- 128 Würfel, gestapelt zu einem Turm (Schichten 7×7, 5×5, 5×5, 3×3, 3×3, 3×3, 1, 1); jedes Spiel ist garantiert lösbar.
+- Jeder Würfel zeigt auf allen Seiten dasselbe Motiv.
+- Ein Würfel ist **frei**, wenn nichts auf ihm liegt und mindestens zwei seiner vier Seiten (links, rechts, vorne, hinten) offen sind.
+- Turm drehen: mit Maus/Finger ziehen, Pfeiltasten oder die Knöpfe ⟲ ⟳. Der Tipp dreht den Turm zum vorgeschlagenen Paar.
+- Hilfen wie beim klassischen Mahjong: Tipp (`H`), Zurück (`Strg+Z`), Mischen und „Freie zeigen“.
