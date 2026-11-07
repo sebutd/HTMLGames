@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Description" content="Sammlung kleiner HTML5-Spiele">
+<title>HTML Games</title>
+<style>
+  :root {
+    --bg1: #1d1b4b;
+    --bg2: #4b2c83;
+    --card: rgba(255, 255, 255, 0.1);
+    --card-hover: rgba(255, 255, 255, 0.18);
+    --text: #fff;
+    --muted: rgba(255, 255, 255, 0.75);
+    --accent: #ffcf4a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: linear-gradient(160deg, var(--bg1), var(--bg2));
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    text-align: center;
+    padding: 48px 16px 24px;
+  }
+  header h1 {
+    margin: 0 0 8px;
+    font-size: clamp(2rem, 6vw, 3rem);
+    letter-spacing: 1px;
+  }
+  header p { margin: 0; color: var(--muted); }
+
+  main {
+    flex: 1;
+    width: min(100%, 960px);
+    margin: 0 auto;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    align-content: start;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px;
+    border-radius: 18px;
+    background: var(--card);
+    color: inherit;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    transition: transform .2s ease, background .2s ease;
+  }
+  a.card:hover, a.card:focus-visible {
+    transform: translateY(-4px);
+    background: var(--card-hover);
+    outline: none;
+  }
+  .card__icon { font-size: 2.6rem; line-height: 1; }
+  .card h2 { margin: 4px 0 0; font-size: 1.3rem; }
+  .card p { margin: 0; color: var(--muted); flex: 1; }
+  .card__cta { margin-top: 8px; font-weight: 700; color: var(--accent); }
+
+  .card--soon {
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    background: transparent;
+    box-shadow: none;
+    opacity: .7;
+  }
+
+  footer {
+    text-align: center;
+    padding: 24px 16px;
+    color: var(--muted);
+    font-size: .9rem;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>🎮 HTML Games</h1>
+    <p>Kleine Spiele, gebaut mit HTML, CSS und JavaScript.</p>
+  </header>
+
+  <main id="games"></main>
+
+  <footer>Weitere Spiele folgen …</footer>
+
+  <script>
+    // Neues Spiel hinzufügen: Ordner anlegen und hier einen Eintrag ergänzen.
+    const games = [
+      {
+        title: "Bonbon-Tausch",
+        icon: "🍬",
+        description: "Tausche benachbarte Bonbons und bilde Reihen aus drei oder mehr gleichen.",
+        url: "Match3Game/index.html"
+      }
+    ];
+
+    const main = document.getElementById("games");
+
+    games.forEach((game) => {
+      const card = document.createElement("a");
+      card.className = "card";
+      card.href = game.url;
+      card.innerHTML = `
+        <span class="card__icon">${game.icon}</span>
+        <h2>${game.title}</h2>
+        <p>${game.description}</p>
+        <span class="card__cta">Jetzt spielen →</span>`;
+      main.appendChild(card);
+    });
+
+    // Platzhalter für kommende Spiele
+    const soon = document.createElement("div");
+    soon.className = "card card--soon";
+    soon.innerHTML = `
+      <span class="card__icon">✨</span>
+      <h2>Demnächst</h2>
+      <p>Hier erscheint bald das nächste Spiel.</p>`;
+    main.appendChild(soon);
+  </script>
+</body>
+</html>
