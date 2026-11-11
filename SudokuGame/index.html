@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Description" content="Sudoku – in drei Schwierigkeitsgraden, mit Notizen, Tipps und Bestzeit">
+<link rel="stylesheet" href="style.css">
+<title>Sudoku</title>
+</head>
+<body>
+  <main class="game">
+    <header class="game__header">
+      <a href="../index.html" class="icon-btn" title="Alle Spiele" aria-label="Alle Spiele">←</a>
+      <h1>Sudoku</h1>
+      <button id="new-btn" class="icon-btn" title="Neues Rätsel" aria-label="Neues Rätsel">↻</button>
+    </header>
+
+    <div class="levels" role="group" aria-label="Schwierigkeit">
+      <button class="level" data-level="leicht" aria-pressed="false">Leicht</button>
+      <button class="level" data-level="mittel" aria-pressed="false">Mittel</button>
+      <button class="level" data-level="schwer" aria-pressed="false">Schwer</button>
+    </div>
+
+    <section class="hud">
+      <div class="hud__item"><span class="hud__label">Zeit</span><span id="time" class="hud__value">0:00</span></div>
+      <div class="hud__item"><span class="hud__label">Fehler</span><span id="mistakes" class="hud__value">0</span></div>
+      <div class="hud__item"><span class="hud__label">Bestzeit</span><span id="best" class="hud__value">–</span></div>
+    </section>
+
+    <div id="board" class="board" aria-label="Spielfeld"></div>
+
+    <div class="tools">
+      <button id="undo-btn" class="tool"><span class="tool__icon">↶</span>Zurück</button>
+      <button id="erase-btn" class="tool"><span class="tool__icon">⌫</span>Löschen</button>
+      <button id="notes-btn" class="tool" aria-pressed="false"><span class="tool__icon">✎</span>Notizen</button>
+      <button id="hint-btn" class="tool"><span class="tool__icon">💡</span>Tipp</button>
+    </div>
+
+    <div id="numpad" class="numpad" aria-label="Ziffern"></div>
+
+    <div id="overlay" class="overlay hidden">
+      <div class="overlay__box">
+        <h2>Geschafft!</h2>
+        <p id="overlay-text"></p>
+        <button id="overlay-btn" class="btn">Neues Rätsel</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="generator.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
