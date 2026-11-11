@@ -12,6 +12,7 @@ Einstieg: `index.html` im Browser öffnen.
 | Mahjong (Solitaire) | `MahjongGame/` |
 | Mahjong 3D Tower | `Mahjong3DGame/` |
 | Wort-Rätsel | `WortraetselGame/` |
+| Sudoku | `SudokuGame/` |
 
 ## Neues Spiel hinzufügen
 
@@ -50,3 +51,18 @@ Zwei Spezial-Bonbons miteinander getauscht ergeben eine verstärkte Kombination.
 - **Grün**: Buchstabe an der richtigen Stelle. **Gelb**: kommt im Wort vor, aber an anderer Stelle. **Grau**: kommt nicht vor.
 - Die Bildschirmtastatur färbt die Tasten entsprechend ein; bereits ausgeschlossene Buchstaben werden ausgegraut.
 - Wortlisten in `WortraetselGame/words.js`: `SOLUTIONS` (handverlesene Lösungswörter) und `ALLOWED` (erlaubte Rateversuche).
+
+## Sudoku – Regeln
+
+- Jede Zeile, jede Spalte und jede 3×3-Box muss die Ziffern 1–9 genau einmal enthalten. Jedes Rätsel wird neu erzeugt und hat genau eine Lösung.
+- Drei Schwierigkeitsgrade, abgestuft nach den nötigen Lösungstechniken:
+
+| Stufe | Vorgaben | Lösbar mit |
+|-------|----------|------------|
+| Leicht | 38–40 | „nackten Einern“ (in einem Feld ist nur noch eine Ziffer möglich) |
+| Mittel | 30–32 | zusätzlich „versteckten Einern“ (eine Ziffer passt in Zeile/Spalte/Box nur an eine Stelle) |
+| Schwer | 24–27 | nur mit weitergehenden Techniken (Paare, Kandidaten-Ausschluss …) |
+
+- Feld antippen, dann Ziffer wählen. Falsche Ziffern werden rot markiert und als Fehler gezählt.
+- Hilfen: Notizen (`N`), Tipp (`H`, deckt ein Feld auf), Zurück (`Strg+Z`), Löschen (`Entf`). Pfeiltasten bewegen die Auswahl.
+- Der Spielstand wird je Stufe im Browser gespeichert; die Bestzeit je Stufe zählt nur ohne Tipps.
