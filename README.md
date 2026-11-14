@@ -13,6 +13,7 @@ Einstieg: `index.html` im Browser öffnen.
 | Mahjong 3D Tower | `Mahjong3DGame/` |
 | Wort-Rätsel | `WortraetselGame/` |
 | Sudoku | `SudokuGame/` |
+| Pixel-Abbau | `PixelAbbauGame/` |
 
 ## Neues Spiel hinzufügen
 
@@ -66,3 +67,12 @@ Zwei Spezial-Bonbons miteinander getauscht ergeben eine verstärkte Kombination.
 - Feld antippen, dann Ziffer wählen. Falsche Ziffern werden rot markiert und als Fehler gezählt.
 - Hilfen: Notizen (`N`), Tipp (`H`, deckt ein Feld auf), Zurück (`Strg+Z`), Löschen (`Entf`). Pfeiltasten bewegen die Auswahl.
 - Der Spielstand wird je Stufe im Browser gespeichert; die Bestzeit je Stufe zählt nur ohne Tipps.
+
+## Pixel-Abbau – Regeln
+
+- Jedes Bild besteht aus farbigen Blöcken und muss komplett abgebaut werden.
+- Ein Trupp läuft einmal ums Bild und baut von außen alle erreichbaren Blöcke seiner Farbe ab – erreichbar ist jeweils der erste Block in einer Zeile bzw. Spalte, von der Seite aus gesehen. Die Zahl zeigt, wie viele Blöcke er noch schafft.
+- Nur der vorderste Trupp jeder Reihe kann losgeschickt werden. Wer nach einer Runde noch Kraft übrig hat, wartet auf der Wartebank und kann von dort erneut starten.
+- Ist die Wartebank voll und ein weiterer Trupp müsste dorthin, ist das Spiel verloren.
+- Die Trupps werden bei jedem Start neu verteilt; jedes Bild ist garantiert lösbar.
+- Bilder stehen in `PixelAbbauGame/levels.js` (eine Zeichenkette je Zeile, ein Buchstabe je Farbe) und lassen sich dort leicht ergänzen.
