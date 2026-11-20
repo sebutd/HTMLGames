@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Description" content="Pixel-Abbau – schicke farbige Trupps los und trage das Pixelbild Block für Block ab">
+<link rel="stylesheet" href="style.css">
+<title>Pixel-Abbau</title>
+</head>
+<body>
+  <main class="game">
+    <header class="game__header">
+      <a href="../index.html" class="icon-btn" title="Alle Spiele" aria-label="Alle Spiele">←</a>
+      <h1>Pixel-Abbau</h1>
+      <button id="new-btn" class="icon-btn" title="Bild neu starten" aria-label="Bild neu starten">↻</button>
+    </header>
+
+    <section class="hud">
+      <div class="hud__item hud__item--nav">
+        <button id="prev-btn" class="nav-btn" aria-label="Vorheriges Bild">‹</button>
+        <div>
+          <span class="hud__label" id="level-label">Bild 1</span>
+          <span id="level-name" class="hud__value">–</span>
+        </div>
+        <button id="next-btn" class="nav-btn" aria-label="Nächstes Bild">›</button>
+      </div>
+      <div class="hud__item"><span class="hud__label">Blöcke</span><span id="blocks" class="hud__value">0</span></div>
+    </section>
+
+    <canvas id="board" class="board" aria-label="Pixelbild"></canvas>
+
+    <section class="panel">
+      <span class="panel__label">Wartebank <span id="bench-count"></span></span>
+      <div id="bench" class="bench"></div>
+    </section>
+
+    <section class="panel">
+      <span class="panel__label">Trupps – nur der vorderste jeder Reihe kann los</span>
+      <div id="lanes" class="lanes"></div>
+    </section>
+
+    <p class="help">
+      Tippe einen Trupp an: Er läuft einmal ums Bild und baut von außen alle erreichbaren Blöcke
+      seiner Farbe ab. Die Zahl zeigt, wie viele Blöcke er noch schafft. Bleibt etwas übrig,
+      wartet er auf der Bank – ist die Bank voll, ist das Spiel verloren.
+    </p>
+
+    <div id="overlay" class="overlay hidden">
+      <div class="overlay__box">
+        <h2 id="overlay-title">Geschafft!</h2>
+        <p id="overlay-text"></p>
+        <button id="overlay-btn" class="btn">Weiter</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="levels.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
