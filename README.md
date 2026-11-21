@@ -14,6 +14,9 @@ Einstieg: `index.html` im Browser öffnen.
 | Wort-Rätsel | `WortraetselGame/` |
 | Sudoku | `SudokuGame/` |
 | Pixel-Abbau | `PixelAbbauGame/` |
+| Farben sortieren | `SortierGame/` |
+| Schrauben-Puzzle | `SchraubenGame/` |
+| Solitär (Klondike, Spider, FreeCell) | `SolitaerGame/` |
 
 ## Neues Spiel hinzufügen
 
@@ -76,3 +79,28 @@ Zwei Spezial-Bonbons miteinander getauscht ergeben eine verstärkte Kombination.
 - Ist die Wartebank voll und ein weiterer Trupp müsste dorthin, ist das Spiel verloren.
 - Die Trupps werden bei jedem Start neu verteilt; jedes Bild ist garantiert lösbar.
 - Bilder stehen in `PixelAbbauGame/levels.js` (eine Zeichenkette je Zeile, ein Buchstabe je Farbe) und lassen sich dort leicht ergänzen.
+
+## Farben sortieren – Regeln
+
+- Jedes Glas fasst 4 Schichten. Tippe ein Glas an und dann das Ziel: Gegossen wird die oberste Farbe – so viel davon, wie hineinpasst –, aber nur auf dieselbe Farbe oder in ein leeres Glas.
+- Ziel: Jedes Glas ist leer oder enthält 4 Schichten einer Farbe.
+- Level 1 beginnt mit 3 Farben, jedes Level bringt eine Farbe mehr (bis 12). Es gibt immer 2 leere Gläser; jedes Level wird zufällig erzeugt und vom Löser auf Lösbarkeit geprüft.
+- Hilfen: unbegrenztes Zurück (`Strg+Z`), Tipp (`H`, rechnet vom aktuellen Stand aus einen Lösungsweg und zeigt den nächsten Zug oder meldet eine Sackgasse), einmal pro Level ein zusätzliches leeres Glas.
+- „Symbole“ blendet in jede Farbschicht ein Zeichen ein (hilfreich bei Farbsehschwäche).
+
+## Schrauben-Puzzle – Regeln
+
+- Halbtransparente Platten liegen übereinander und sind mit farbigen Schrauben befestigt. Eine Schraube lässt sich nur herausdrehen, wenn keine höhere Platte ihren Kopf überdeckt.
+- Herausgedrehte Schrauben wandern in eine der zwei offenen Kisten ihrer Farbe (je 3 Plätze), sonst auf die Ablage (5 Plätze). Volle Kisten verschwinden, die nächste rückt nach und holt passende Schrauben von der Ablage.
+- Eine Platte ohne Schrauben fällt herunter. Gewonnen ist, wenn alle Platten gefallen sind; verloren, wenn eine Schraube keinen Platz mehr findet.
+- Level werden zufällig erzeugt: Der Generator würfelt eine gültige Lösereihenfolge aus und verteilt die Farben so, dass auf diesem Weg die Ablage nie voll wird – jedes Level ist also lösbar. Mit dem Level steigen Plattenzahl, Farbanzahl und Durchmischung.
+- Hilfen: unbegrenztes Zurück (auch nach dem Verlieren), einmal pro Level ein zusätzlicher Ablageplatz, „Freie zeigen“ markiert lösbare Schrauben.
+
+## Solitär – Regeln
+
+- Karten ziehen und ablegen oder einfach antippen: Eine angetippte Karte (bzw. Folge) springt zum besten erlaubten Ziel.
+- **Klondike**: 7 Spalten, absteigend und abwechselnd rot/schwarz anlegen, leere Spalten nur mit Königen. Wahlweise 1 oder 3 Karten vom Stapel ziehen, beliebig oft umdrehen. Jedes Spiel wird vor dem Austeilen von einem Löser geprüft und ist **garantiert lösbar**. Ist alles aufgedeckt, wird automatisch zu Ende gespielt.
+- **Spider**: 10 Spalten, 104 Karten, mit 1, 2 oder 4 Farben. Angelegt wird absteigend in beliebiger Farbe, verschoben werden nur Folgen derselben Farbe. Vollständige Folgen K bis A werden abgeräumt. Austeilen vom Stapel geht nur, wenn keine Spalte leer ist.
+- **FreeCell**: Alle Karten offen, 4 freie Zellen. Wie viele Karten auf einmal verschoben werden dürfen, hängt von den freien Zellen und leeren Spalten ab. Sichere Karten wandern automatisch auf die Ablage.
+- Hilfen: unbegrenztes Zurück (`Strg+Z`) und Tipp (`H`). Spielstand, Bestzeit und Gewinnquote werden je Variante im Browser gespeichert.
+

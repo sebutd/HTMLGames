@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Description" content="Solitär-Sammlung – Klondike, Spider und FreeCell ohne Werbung, mit Rückgängig, Tipps und Statistik">
+<link rel="stylesheet" href="style.css">
+<title>Solitär</title>
+</head>
+<body>
+  <main class="game">
+    <header class="game__header">
+      <a href="../index.html" class="icon-btn" title="Alle Spiele" aria-label="Alle Spiele">←</a>
+      <div class="variants" role="group" aria-label="Spielart">
+        <button class="variant" data-variant="klondike">Klondike</button>
+        <button class="variant" data-variant="spider">Spider</button>
+        <button class="variant" data-variant="freecell">FreeCell</button>
+      </div>
+      <button id="new-btn" class="icon-btn" title="Neues Spiel" aria-label="Neues Spiel">↻</button>
+    </header>
+
+    <div class="bar">
+      <div id="options" class="options" role="group" aria-label="Optionen"></div>
+      <div class="stats">
+        <span title="Zeit">⏱ <b id="time">0:00</b></span>
+        <span title="Züge">↔ <b id="moves">0</b></span>
+      </div>
+      <div class="actions">
+        <button id="undo-btn" class="chip" title="Zurück (Strg+Z)">↶ Zurück</button>
+        <button id="hint-btn" class="chip" title="Tipp (H)">💡 Tipp</button>
+      </div>
+    </div>
+
+    <div id="table" class="table" aria-label="Spieltisch"></div>
+    <p id="message" class="message" aria-live="polite"></p>
+
+    <div id="overlay" class="overlay hidden">
+      <div class="overlay__box">
+        <h2>Gewonnen! 🎉</h2>
+        <p id="overlay-text"></p>
+        <button id="overlay-btn" class="btn">Neues Spiel</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="rules.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
