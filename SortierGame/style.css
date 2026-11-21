@@ -1,0 +1,271 @@
+:root {
+  --bg1: #1d1b4b;
+  --bg2: #4b2c83;
+  --text: #fff;
+  --muted: rgba(255, 255, 255, 0.75);
+  --panel: rgba(255, 255, 255, 0.13);
+  --accent: #ffcf4a;
+  --glass: rgba(255, 255, 255, 0.10);
+  --glass-edge: rgba(255, 255, 255, 0.55);
+  --tube-w: 46px;
+  --seg-h: 40px;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: linear-gradient(160deg, var(--bg1), var(--bg2));
+  background-attachment: fixed;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button { font: inherit; color: inherit; }
+
+.game {
+  min-height: 100%;
+  width: min(100%, 640px);
+  margin: 0 auto;
+  padding: 12px 10px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.game__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.game__header h1 {
+  margin: 0;
+  font-size: clamp(1.3rem, 6vw, 2.1rem);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.icon-btn {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  color: inherit;
+  font-size: 1.4rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+.icon-btn:hover, .icon-btn:focus-visible { background: rgba(255, 255, 255, 0.28); outline: none; }
+
+.hud {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 100%;
+  max-width: 520px;
+}
+.hud__item {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 4px;
+  border-radius: 12px;
+  background: var(--panel);
+  text-align: center;
+}
+.hud__label { font-size: .7rem; text-transform: uppercase; opacity: .8; }
+.hud__value { font-size: 1.15rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* ---------- Gläser ---------- */
+.board {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  gap: 26px 14px;
+  padding: 34px 4px 8px;
+  min-height: 260px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.tube {
+  position: relative;
+  width: var(--tube-w);
+  height: calc(var(--seg-h) * var(--cap) + 18px);
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transition: transform .18s ease;
+  transform-origin: 50% 0;
+}
+.tube:focus { outline: none; }
+.tube:focus-visible .tube__glass { box-shadow: 0 0 0 3px var(--accent); }
+
+.tube__glass {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 0 4px 5px;
+  border: 3px solid var(--glass-edge);
+  border-top: 0;
+  border-radius: 4px 4px calc(var(--tube-w) / 2) calc(var(--tube-w) / 2);
+  background: var(--glass);
+  overflow: hidden;
+}
+.tube__glass::before { /* Glanz */
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 14px;
+  left: 6px;
+  width: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.28);
+  z-index: 2;
+  pointer-events: none;
+}
+.tube::before { /* Rand oben */
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -4px;
+  right: -4px;
+  height: 6px;
+  border-radius: 4px;
+  background: var(--glass-edge);
+  z-index: 3;
+}
+
+.seg {
+  flex: none;
+  height: var(--seg-h);
+  display: grid;
+  place-items: center;
+  font-size: calc(var(--seg-h) * .45);
+  color: rgba(0, 0, 0, 0.55);
+  font-weight: 900;
+  transition: height .22s ease;
+}
+.seg:first-child { border-radius: 0 0 calc(var(--tube-w) / 2 - 6px) calc(var(--tube-w) / 2 - 6px); }
+.seg.fill-in { animation: fill-in .3s ease; }
+.seg span { visibility: hidden; }
+.symbols .seg span { visibility: visible; }
+
+@keyframes fill-in {
+  from { height: 0; }
+}
+
+.tube.selected { transform: translateY(-22px); }
+.tube.hint .tube__glass { box-shadow: 0 0 0 3px var(--accent), 0 0 18px var(--accent); }
+.tube.done .tube__glass { border-color: #9ff5b0; }
+.tube.done::after {
+  content: "✓";
+  position: absolute;
+  top: -30px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-weight: 900;
+  color: #9ff5b0;
+}
+.tube.shake { animation: shake .3s ease; }
+.tube.pouring { z-index: 5; transition: transform .25s ease; }
+
+@keyframes shake {
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.message {
+  min-height: 1.3em;
+  margin: 0;
+  color: var(--accent);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ---------- Bedienung ---------- */
+.tools {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  width: 100%;
+  max-width: 520px;
+}
+.tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 2px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--panel);
+  font-size: .8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.tool__icon { font-size: 1.25rem; line-height: 1; }
+.tool:hover { background: rgba(255, 255, 255, 0.22); }
+.tool:disabled { opacity: .4; cursor: default; }
+.tool[aria-pressed="true"] { background: var(--accent); color: #2a1f00; }
+
+.help {
+  max-width: 520px;
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: .85rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+/* ---------- Overlay ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 10;
+}
+.overlay.hidden { display: none; }
+.overlay__box {
+  width: min(100%, 360px);
+  padding: 28px 24px;
+  border-radius: 18px;
+  background: linear-gradient(160deg, #2b2766, #5a3596);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  text-align: center;
+}
+.overlay__box h2 { margin: 0 0 10px; }
+.overlay__box p { margin: 0 0 16px; color: var(--muted); line-height: 1.5; }
+.overlay__box strong { color: var(--accent); }
+
+.btn {
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #2a1f00;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.btn:hover, .btn:focus-visible { filter: brightness(1.08); outline: none; }
+
+@media (max-width: 420px) {
+  .board { gap: 24px 10px; }
+}

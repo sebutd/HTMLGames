@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Description" content="Schrauben-Puzzle – drehe die Schrauben in der richtigen Reihenfolge heraus, bis alle Platten gefallen sind">
+<link rel="stylesheet" href="style.css">
+<title>Schrauben-Puzzle</title>
+</head>
+<body>
+  <main class="game">
+    <header class="game__header">
+      <a href="../index.html" class="icon-btn" title="Alle Spiele" aria-label="Alle Spiele">←</a>
+      <h1>Schrauben-Puzzle</h1>
+      <button id="restart-btn" class="icon-btn" title="Level neu starten" aria-label="Level neu starten">↻</button>
+    </header>
+
+    <section class="hud">
+      <div class="hud__item"><span class="hud__label">Level</span><span id="level" class="hud__value">1</span></div>
+      <div class="hud__item"><span class="hud__label">Schrauben</span><span id="left" class="hud__value">0</span></div>
+      <div class="hud__item"><span class="hud__label">Kisten</span><span id="boxes-left" class="hud__value">0</span></div>
+    </section>
+
+    <section class="panel">
+      <div id="boxes" class="boxes" aria-label="Kisten"></div>
+      <div class="panel__label">Ablage</div>
+      <div id="buffer" class="buffer" aria-label="Ablage"></div>
+    </section>
+
+    <svg id="board" class="board" viewBox="0 0 360 420" aria-label="Platten und Schrauben"></svg>
+
+    <div class="tools">
+      <button id="undo-btn" class="tool"><span class="tool__icon">↶</span>Zurück</button>
+      <button id="slot-btn" class="tool"><span class="tool__icon">➕</span>Ablageplatz</button>
+      <button id="free-btn" class="tool" aria-pressed="false"><span class="tool__icon">👁</span>Freie zeigen</button>
+    </div>
+
+    <p class="help">
+      Tippe eine Schraube an, um sie herauszudrehen – das geht nur, wenn keine Platte darüber liegt.
+      Sie wandert in die Kiste ihrer Farbe, sonst auf die Ablage. Platten ohne Schrauben fallen herunter.
+      Ist die Ablage voll, ist das Level verloren.
+    </p>
+
+    <div id="overlay" class="overlay hidden">
+      <div class="overlay__box">
+        <h2 id="overlay-title">Geschafft!</h2>
+        <p id="overlay-text"></p>
+        <div class="overlay__btns">
+          <button id="overlay-alt" class="btn btn--ghost hidden">Zug zurück</button>
+          <button id="overlay-btn" class="btn">Nächstes Level</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="logic.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

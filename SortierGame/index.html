@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Description" content="Farben sortieren – fülle die bunten Schichten um, bis jedes Glas nur noch eine Farbe enthält">
+<link rel="stylesheet" href="style.css">
+<title>Farben sortieren</title>
+</head>
+<body>
+  <main class="game">
+    <header class="game__header">
+      <a href="../index.html" class="icon-btn" title="Alle Spiele" aria-label="Alle Spiele">←</a>
+      <h1>Farben sortieren</h1>
+      <button id="restart-btn" class="icon-btn" title="Level neu starten" aria-label="Level neu starten">↻</button>
+    </header>
+
+    <section class="hud">
+      <div class="hud__item"><span class="hud__label">Level</span><span id="level" class="hud__value">1</span></div>
+      <div class="hud__item"><span class="hud__label">Züge</span><span id="moves" class="hud__value">0</span></div>
+      <div class="hud__item"><span class="hud__label">Farben</span><span id="colors" class="hud__value">3</span></div>
+    </section>
+
+    <div id="board" class="board" aria-label="Gläser"></div>
+    <p id="message" class="message" aria-live="polite"></p>
+
+    <div class="tools">
+      <button id="undo-btn" class="tool"><span class="tool__icon">↶</span>Zurück</button>
+      <button id="hint-btn" class="tool"><span class="tool__icon">💡</span>Tipp</button>
+      <button id="tube-btn" class="tool"><span class="tool__icon">🧪</span>+ Glas</button>
+      <button id="symbols-btn" class="tool" aria-pressed="false"><span class="tool__icon">◆</span>Symbole</button>
+    </div>
+
+    <p class="help">
+      Tippe ein Glas an und dann ein Ziel. Gießen geht nur auf die gleiche Farbe oder in ein leeres Glas,
+      und nur so viel, wie hineinpasst. Ziel: Jedes Glas enthält nur noch eine Farbe.
+    </p>
+
+    <div id="overlay" class="overlay hidden">
+      <div class="overlay__box">
+        <h2>Geschafft!</h2>
+        <p id="overlay-text"></p>
+        <button id="overlay-btn" class="btn">Nächstes Level</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="solver.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
